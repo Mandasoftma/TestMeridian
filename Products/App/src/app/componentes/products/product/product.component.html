@@ -1,0 +1,101 @@
+<div class="container">
+    <p-panel header="Configurar producto">
+        <p-card>
+            <form #ProductForm="ngForm" (ngSubmit)="ProcesarProducto(ProductForm)">
+                <input type="hidden" name="$Id" #$Id="ngModel" [(ngModel)]="Service.NewProduct.$Id">
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-tag"></i></span>
+                            <input name="Nombre" #name="ngModel" [(ngModel)]="Service.NewProduct.Nombre" type="text" pInputText placeholder="Nombre del producto">         
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-square-o"></i></span>
+                            <input name="Descripcion" #name="ngModel" [(ngModel)]="Service.NewProduct.Descripcion" type="text" pInputText placeholder="Descripcion del producto">         
+                        </div>
+                    </div>                    
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">     
+                            <span class="ui-inputgroup-addon"><i class="fa fa-calendar"></i></span>                       
+                            <p-calendar name="Lanzamiento" #name="ngModel" [(ngModel)]="Service.NewProduct.Lanzamiento" type="text" dateFormat="dd/mm/yy"  class="ui-calendar" placeholder="Fecha de lanzamiento del producto"></p-calendar>                             
+                        </div>
+                    </div>
+
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-envelope"></i></span>
+                            <input name="EmailFabricante" #name="ngModel" [(ngModel)]="Service.NewProduct.EmailFabricante" type="email" pInputText placeholder="Correo del fabricante del producto">         
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-globe"></i></span>
+                            <input name="PaisFabricante" #name="ngModel" [(ngModel)]="Service.NewProduct.PaisFabricante" type="text" pInputText placeholder="País del fabricante del producto">         
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon">$</span>
+                            <input name="Precio" #name="ngModel" [(ngModel)]="Service.NewProduct.Precio" type="number" pInputText placeholder="Price">   
+                            <!-- <span class="ui-inputgroup-addon">.00</span>       -->
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-check-circle"></i></span>
+                            <input name="Disponibilidad" #name="ngModel" [(ngModel)]="Service.NewProduct.Disponibilidad" type="number" pInputText placeholder="Inidades disponiblidad">   
+                            <!-- <span class="ui-inputgroup-addon">00</span>       -->
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon">#</span>
+                            <input name="Vendidas" #name="ngModel" [(ngModel)]="Service.NewProduct.Vendidas" type="number" pInputText placeholder="Inidades vendidas">   
+                            <!-- <span class="ui-inputgroup-addon">00</span>       -->
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="fa fa-square-o"></i></span>
+                            <input name="Cupon" #name="ngModel" [(ngModel)]="Service.NewProduct.Cupon" type="text" pInputText placeholder="Ingrese cupon de descuento">                              
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="fa fa-picture-o"></i></span>
+                                <div class="image-upload">
+                                    <div *ngIf="Service.NewProduct.$Id; then isEdit; else isNew"></div>
+                                    <ng-template #isEdit>
+                                        <img src="https://ucarecdn.com/{{ Service.NewProduct.Imagen }}/" style="max-width:300px;max-height:300px"> 
+                                        <!-- <input name="Imagen" #name="ngModel" [(ngModel)]="Service.NewProduct.Imagen" type="file" accept="image/*" (change)="handleInputChange($event)" /> -->
+                                    </ng-template>
+                                    <ng-template #isNew>
+                                        <img [src]="imageSrc" style="max-width:300px;max-height:300px" />
+                                        <input name="Imagen" #name="ngModel" [(ngModel)]="Service.NewProduct.Imagen" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                                    </ng-template>                                     
+                                    
+                                </div>                      
+                        </div>
+                    </div>
+                    
+              </div> 
+                   <br/>  
+              <div  style="text-align: right">
+                    <button class="" pButton type="button" label="Guardar" type="submit"></button>
+                    <button class="" pButton type="button" label="Cancelar" type="reset" (Clik)="ResetModel(ProductForm)"></button>
+               </div>
+            </form>
+        </p-card>
+    </p-panel>    
+</div>

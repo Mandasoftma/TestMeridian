@@ -1,0 +1,27 @@
+<div class="ui-g">
+  <div class="ui-g-4">
+  </div>
+  <div class="ui-g-4">
+    <h1>Login</h1>  
+      <span class="ui-float-label">
+          <input id="float-input" [(ngModel)]="email" type="text" size="30" pInputText> 
+          <label for="float-input">Email</label>
+      </span>
+    <!-- <hr/> -->
+    <br/>
+    <span class="ui-float-label">
+        <input id="float-pass" [(ngModel)]="password" type="password" size="30" pInputText> 
+        <label for="float-pass">Contraseña</label>
+    </span>
+    <hr/>
+    <button pButton type="button" label="Ingresar" (click)="login()"></button>
+    <hr/>
+    <p></p>
+    <div><p>¿Aún no tienes cuenta?<a routerLink="/register"> Regístrate</a>&nbsp;|&nbsp;<a routerLink="/forgot">¿Olvidaste tu contraseña?</a></p></div>
+  </div>
+    
+  <div class="ui-g-4"></div>
+</div>
+<p-dialog header="Message" [(visible)]="display">
+    
+</p-dialog>

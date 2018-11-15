@@ -1,0 +1,30 @@
+<div class="ui-g">
+  <div class="ui-g-4">
+  </div>
+  <div class="ui-g-4">
+    <h1>Regístrate</h1>  
+      <span class="ui-float-label">
+          <input id="float-input" [(ngModel)]="email" type="text" size="30" pInputText> 
+          <label for="float-input">email</label>
+      </span>
+    <hr/>
+    <span class="ui-float-label">
+        <input id="float-pass" type="password" [(ngModel)]="password" size="30" pInputText> 
+        <label for="float-pass">Contraseña</label>
+    </span>
+    <hr/>
+    <span class="ui-float-label">
+        <input id="float-pass" type="password" [(ngModel)]="password2" size="30" pInputText> 
+        <label for="float-pass">Repetir Contraseña</label>
+    </span>
+    <hr/>
+    <button pButton type="button" label="Registrar" (click)="signUp()"></button>
+    <hr/>
+    <div><a routerLink="/login">Ir al Login</a></div>
+  </div>
+    
+  <div class="ui-g-4"></div>
+</div>
+<p-dialog header="Message" [(visible)]="display">
+      {{ msg }}
+</p-dialog>
